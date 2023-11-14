@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 // import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 function LandingPage() {
@@ -16,12 +16,12 @@ function LandingPage() {
               <p className="subtitle">One Safe place for all your notes.</p>
             </div>
             <div className="buttonContainer">
-              {/* <Link to="/login"> */}
+              <Link to="/login">
                 <Button size="lg" className="landingbutton">
                   Login
                 </Button>
-              {/* </Link> */}
-              {/* <Link to="/register"> */}
+              </Link>
+              <Link to="/signup">
                 <Button
                   variant="outline-primary"
                   size="lg"
@@ -29,7 +29,7 @@ function LandingPage() {
                 >
                   Signup
                 </Button>
-              {/* </Link> */}
+              </Link>
             </div>
           </div>
         </Row>
