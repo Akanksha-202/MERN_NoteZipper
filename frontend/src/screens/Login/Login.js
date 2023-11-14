@@ -35,6 +35,7 @@ const Login = () => {
 
             localStorage.setItem('userInfo',JSON.stringify(data))
             setloading(false)
+            
         } catch (error) {
             seterror(error.response.data.message)
             setloading(false)
