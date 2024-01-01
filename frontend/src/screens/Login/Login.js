@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MainScreen from '../../components/MainScreen/MainScreen'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -7,12 +7,15 @@ import './Login.css'
 import Loading from '../../components/Loading/loading'
 import ErrorMessage from '../../components/ErrorMessage/errorMessage'
 
+
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, seterror] = useState(false);
     const [loading, setloading] = useState(false);
+
+    
 
     const SubmitHandler = async (e) => {
         e.preventDefault()
@@ -33,9 +36,9 @@ const Login = () => {
             );
             console.log(data);
 
-            localStorage.setItem('userInfo',JSON.stringify(data))
+            localStorage.setItem('userInfo', JSON.stringify(data))
             setloading(false)
-            
+
         } catch (error) {
             seterror(error.response.data.message)
             setloading(false)

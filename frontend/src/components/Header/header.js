@@ -1,14 +1,17 @@
 import React from 'react'
 
 import { Container, Form, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 const linkStyle = {
   color: 'white',
   textDecoration: 'none', // To remove the underline
 };
 
-const header = () => {
+const Header = () => {
+
+  const navigate = useNavigate();
+
   return (
     <Navbar bg='primary' expand="lg" variant='dark'>
       <Container>
@@ -38,7 +41,10 @@ const header = () => {
                 My Profile
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item onClick={() =>{
+                localStorage.removeItem("userInfo");
+                navigate("/");
+              }}>
                 Logout
               </NavDropdown.Item>
             </NavDropdown>
@@ -51,4 +57,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header
